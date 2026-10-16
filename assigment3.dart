@@ -1,21 +1,27 @@
 
-double calculateTota(double price , int quantity){
+ // Task 1 — Calculate Total Price
+double calculateTotal(double price , int quantity){
   return price*quantity;
 }
 
 ////////////////////////////////////////////////////
 
-String greateUser(String name, [String greating = "Hello"]){
-  return "$greating $name";
+//Task 2 — Customize a Greeting
+String greetUser(String name, [String greeting = "Hello"]){
+  return "$greeting $name";
 }
 
 /////////////////////////////////////////////////////
+
+//Task 3 — Calculate an Order
 double calculateOrder(double price ,int quantity , {double discount = 0.0 , double deliveryFee =0}){
   double finalOrderPrice = (price * quantity) - discount + deliveryFee;
   return finalOrderPrice;
 }
 
 //////////////////////////////////////////////////////
+
+//Task 4 — Filter Numbers
 List<int> filterNumbers(List<int> numbers , {int min =0 , int max = 100 , bool includeeven = true}){
   List<int> newList =[];
   for(int num in numbers){
@@ -30,6 +36,8 @@ List<int> filterNumbers(List<int> numbers , {int min =0 , int max = 100 , bool i
 }
 
 ///////////////////////////////////////////////////////
+
+//Task 5 — Shopping Cart Calculator
 double calculateCartTotal (
   List<double> prices,
   {
@@ -75,36 +83,38 @@ double calculateCartTotal (
 }
 
 
-String duckDuckGoose(List<String> players, int position){
-  if (position < 1 || position > players.length){
-    return "Invalid position";
-  }
-  return players[position-1] ;
-}
+
 
 void main(){
 
-print(calculateTota(50.0,3));
-print(calculateTota(25.5, 2));
+// Task 1 — Calculate Total Price
+print(calculateTotal(50.0,3));
+print(calculateTotal(25.5, 2));
 
 print('\n ------------------------------------------------------- \n');
 
-
-print(greateUser( "Menna", "Hi"));
-print(greateUser( "laila"));
-
-print('\n ------------------------------------------------------- \n');
-
-print(calculateOrder(50.0, 3, discount: 5.0, deliveryFee: 10.0));
+//Task 2 — Customize a Greeting
+print(greetUser( "Menna", "Hi"));
+print(greetUser( "laila"));
 
 print('\n ------------------------------------------------------- \n');
 
+//Task 3 — Calculate an Order
+print("final order price  = ${calculateOrder(50.0, 3, discount: 5.0, deliveryFee: 10.0)}");
+
+print('\n ------------------------------------------------------- \n');
+
+//Task 4 — Filter Numbers
 print(filterNumbers([1, 2, 5, 8, 12, 15], min: 2, max: 12));
 print(filterNumbers([1, 2, 5, 8, 12, 15], min: 2, max: 12 , includeeven: false));
 
 print('\n ------------------------------------------------------- \n');
 
- print (calculateCartTotal([200,300] , isMember : true , maxDiscount :10 , discountPercent :0 , deliveryFee :20));
+//Task 5 — Shopping Cart Calculator
+print("final cart total  = ${calculateCartTotal([200,300] , isMember : true , maxDiscount :10 , discountPercent :5 , deliveryFee :20)}");
+print("final cart total  = ${calculateCartTotal([100,200 ,50])}"); 
+print("final cart total  = ${calculateCartTotal([100,200 ,50] ,taxPercent: 14, discountPercent :10 , deliveryFee :25)}");
+print("final cart total  = ${calculateCartTotal([100,200 ,50] ,discountPercent :10 , maxDiscount: 12, isMember : true)}");
 
- print(duckDuckGoose (["ali" , "menna" , "roqia" , "Salma"] , 0));
+
 }
